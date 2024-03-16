@@ -3,11 +3,9 @@ const startGame = document.getElementById('start');
 startGame.addEventListener ('click', StartNewGame)
 
 
-
 function StartNewGame (){
     const wincon = [ '123', '456', '789', '147', '258', '369', '159', '357'];
     const board = ['','','','','','','','',''];
-    const winner = "";
     for (x = 1; x <= 9; x++){
         if ( x % 2 == 1){
             getP1Entry(board);
@@ -15,14 +13,13 @@ function StartNewGame (){
         else if ( x % 2 == 0){
             getP2Entry(board);
         }
-        checkwin(board, wincon, winner);
+        let winner = checkwin(board, wincon);
         console.log(winner);
         if (winner != '') {
             console.log(winner);
             break;}
     }
 }
-
 
 
 function getP1Entry(board){
@@ -37,8 +34,8 @@ function getP2Entry(board){
     console.log(board);
 }
 
-function checkwin(board,wincon, winner){
-    console.log(winner);
+function checkwin(board,wincon){
+    let winner = ""; 
     let p1Picks = '';
     let p2Picks = '';
     for (y = 0; y < 9; y++){
@@ -56,7 +53,7 @@ function checkwin(board,wincon, winner){
                 cntr1 ++;
                 // console.log(combo + " " + letter + " " + cntr1)
                 if (cntr1 == 3){
-                    winnner = 'Player 1';
+                    winner = 'Player 1';
                     console.log("Player 1 won");
                 }
             }
@@ -68,13 +65,14 @@ function checkwin(board,wincon, winner){
                 cntr2 ++;
                 // console.log(combo + " " + letter + " " + cntr2)
                 if (cntr2 == 3){
-                    winnner = 'Player 2';
+                    winner = 'Player 2';
                     console.log("Player 2 won");
                 }
             }
         })
+        
    });
+   return (winner == "")? "" : winner;
 }
 
 
-   

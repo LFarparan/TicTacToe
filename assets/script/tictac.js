@@ -15,7 +15,7 @@ function StartNewGame (){
         else if ( x % 2 == 0){
             getP2Entry(board);
         }
-        checkwin(board, wincon);
+        checkwin(board, wincon, winner);
         console.log(winner);
         if (winner != '') {
             console.log(winner);
@@ -37,8 +37,8 @@ function getP2Entry(board){
     console.log(board);
 }
 
-function checkwin(board,wincon, isWon){
-    console.log(isWon);
+function checkwin(board,wincon, winner){
+    console.log(winner);
     let p1Picks = '';
     let p2Picks = '';
     for (y = 0; y < 9; y++){
@@ -73,9 +73,6 @@ function checkwin(board,wincon, isWon){
                 }
             }
         })
-   
-           
-        
    });
 }
 
